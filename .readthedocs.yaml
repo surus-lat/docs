@@ -4,23 +4,23 @@
 # Required
 version: 2
 
-# Set the OS, Python version, and other tools you might need
-build:
-  os: ubuntu-24.04
-  tools:
-    python: "3.13"
-  commands:
-    - python scripts/gen_index.py
-    - python scripts/gen_models_and_pricing.py
-
-# Build documentation with Mkdocs
-mkdocs:
-   configuration: mkdocs.yml
-
 # declare the Python requirements required to build your documentation
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
    install:
    - requirements: requirements.txt
         
+
+# Set the OS, Python version, and other tools you might need
+build:
+  os: ubuntu-24.04
+  tools:
+    python: "3.13"
+  pre_build:
+    - python scripts/gen_index.py
+    - python scripts/gen_models_and_pricing.py
+
+# Build documentation with Mkdocs
+mkdocs:
+   configuration: mkdocs.yml
 
