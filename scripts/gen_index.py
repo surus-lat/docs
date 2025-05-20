@@ -1,7 +1,6 @@
-
 import os
 from pathlib import Path
-import yaml
+import re
 
 DOCS_DIR = Path(__file__).parent.parent / "docs"
 INDEX_MD = DOCS_DIR / "index.md"
@@ -16,30 +15,59 @@ def get_title(md_path):
                 return line.strip().lstrip("# ").strip()
     return md_path.stem.capitalize()
 
+# New function to manually parse mkdocs.yml for nav order
+def get_ordered_nav_files(mkdocs_yml_path):
+    ordered_files = []
+    try:
+        with open(mkdocs_yml_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        return [] # mkdocs.yml not found, return empty list
+
+    in_nav_section = False
+    nav_section_base_indent = -1 # Indentation of the "nav:" key itself
+
+    for line_content in lines:
+        stripped_line = line_content.lstrip()
+        current_indent = len(line_content) - len(stripped_line)
+
+        if stripped_line.startswith("nav:"):
+            in_nav_section = True
+            nav_section_base_indent = current_indent
+            continue
+
+        if in_nav_section:
+            # If the current line is less or equally indented than "nav:" key,
+            # and it's not empty or a comment, then nav section has ended.
+            if current_indent <= nav_section_base_indent and \
+               stripped_line and not stripped_line.startswith("#"):
+                in_nav_section = False
+                break # Stop processing lines for nav
+
+            # Only consider lines that are more indented than "nav:"
+            if current_indent > nav_section_base_indent:
+                # Look for '.md' files, typically in quotes
+                match = re.search(r"['\"]([^'\"]+\.md)['\"]", line_content)
+                if match:
+                    ordered_files.append(match.group(1))
+    
+    return ordered_files
+
 def main():
     # Parse mkdocs.yml to get nav order
     mkdocs_yml = Path(__file__).parent.parent / "mkdocs.yml"
-    with open(mkdocs_yml, encoding="utf-8") as f:
-        mkdocs = yaml.safe_load(f)
-    nav = mkdocs.get("nav", [])
+    
+    # Get ordered list of md files from mkdocs.yml nav section
+    # This replaces the yaml parsing and extract_md_files logic
+    nav_file_paths = get_ordered_nav_files(mkdocs_yml)
 
-    # Flatten nav to get ordered list of md files
-    def extract_md_files(nav_section):
-        result = []
-        for item in nav_section:
-            if isinstance(item, dict):
-                for v in item.values():
-                    if isinstance(v, str) and v.endswith(".md"):
-                        result.append(v)
-                    elif isinstance(v, list):
-                        result.extend(extract_md_files(v))
-            elif isinstance(item, str) and item.endswith(".md"):
-                result.append(item)
-        return result
-
-    ordered_files = extract_md_files(nav)
     # Only include files that exist and are not excluded
-    files = [DOCS_DIR / f for f in ordered_files if (DOCS_DIR / f).exists() and f not in default_exclude]
+    files = []
+    for f_path_str in nav_file_paths:
+        resolved_path = DOCS_DIR / f_path_str
+        # Use f_path_str for exclusion check as default_exclude contains relative paths
+        if resolved_path.exists() and f_path_str not in default_exclude:
+            files.append(resolved_path)
 
     lines = [
         
