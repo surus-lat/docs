@@ -14,3 +14,7 @@ Esta API ofrece modelos de IA compatibles con el formato de OpenAI, para que los
 - [Precios](pricings.md)
 
 ---
+
+## Contribuciones
+
+Te invitamos a contribuir a la documentación! Si quisieras hacerlo, crea un issue o pull request en nuestro [repositorio de GitHub](https://github.com/GradienteSur/docs).
