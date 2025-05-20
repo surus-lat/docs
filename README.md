@@ -1,3 +1,23 @@
+# Actualización automática de modelos y precios
+
+Los archivos `modelos.md` y `pricings.md` se generan automáticamente desde la API de GradienteSur cada vez que se construye la documentación.
+
+Para actualizar manualmente:
+
+```bash
+export GRADIENTESUR_API_KEY="<tu_api_key>"
+python scripts/gen_models_and_pricing.py
+```
+
+En ReadTheDocs, agrega este script como un paso previo a la construcción en tu configuración (`.readthedocs.yaml`):
+
+```yaml
+build:
+  jobs:
+    pre_build:
+      - export GRADIENTESUR_API_KEY=... # o usa un secreto
+      - python scripts/gen_models_and_pricing.py
+```
 # GradienteSur API Docs
 
 Documentación oficial de la API de GradienteSur.
