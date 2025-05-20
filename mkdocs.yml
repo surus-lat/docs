@@ -1,0 +1,27 @@
+site_name: GradienteSur API Docs
+site_url: https://gradientesur.com/docs/
+nav:
+  - Introducción: index.md
+  - Comenzando:
+      - Autenticación: comenzando/autenticacion.md
+      - Inicio rápido: comenzando/index.md
+  - APIs: apis.md
+  - Modelos: modelos.md
+  - Precios: pricings.md
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.footer
+  logo: gradiente.png
+  favicon: gradiente.png
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+plugins:
+  - gen-files:
+      scripts:
+        - scripts/gen_index.py

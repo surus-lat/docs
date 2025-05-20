@@ -1,8 +1,35 @@
-# docs
-Este repositorio agrupa la documenctación e información que se muestra en la web de gradientesur
+# GradienteSur API Docs
 
-A esta documentación la podés encontrar renderizada en [gradientesur.com/docs](https://gradientesur.com/docs)
+Documentación oficial de la API de GradienteSur, compatible con OpenAI.
 
-## Cómo contribuir?
+## Estructura
 
-Simplemente haz un fork de este repositorio (o un branch si tenés los permisos suficientes), agregá/editá archivos, commitealos y hacé un pull request. 
+La documentación está en la carpeta `docs/` y sigue el formato de [MkDocs](https://www.mkdocs.org/) para ser publicada en ReadTheDocs.
+
+## Cómo construir la documentación localmente
+
+1. Instala MkDocs y el tema Material:
+   ```bash
+   pip install mkdocs mkdocs-material
+   ```
+2. Levanta un servidor local para previsualizar:
+   ```bash
+   mkdocs serve
+   ```
+3. Abre tu navegador en http://localhost:8000
+
+## Publicación en ReadTheDocs
+
+- Vincula este repositorio en https://readthedocs.org/
+- ReadTheDocs detectará automáticamente el archivo `mkdocs.yml` y construirá la documentación.
+
+---
+
+## Estructura de la documentación
+
+- `docs/index.md`: Introducción general
+- `docs/autenticacion.md`: Cómo autenticarse
+- `docs/endpoints.md`: Descripción de los endpoints
+- `docs/ejemplos.md`: Ejemplos de uso
+- `docs/faq.md`: Preguntas frecuentes
+- `mkdocs.yml`: Configuración de la documentación

@@ -1,0 +1,3 @@
+# mkdocs-gen-files configuration for dynamic index.md generation
+scripts:
+  - scripts/gen_index.py
