@@ -24,15 +24,17 @@ resp.raise_for_status()
 data = resp.json()["data"]
 
 def make_modelos_md(models):
-    lines = [
-        "# Modelos Disponibles\n",
-        "\nConsultá los modelos disponibles también usando el endpoint `/functions/v1/models`.\n\n",
-        "\n| Modelo | Descripción |\n",
-        "|--------------------------------------------|----------------------------------------------------------------|\n"
+    content = [
+        "# Modelos Disponibles",
+        "",
+        "Consultá los modelos disponibles también usando el endpoint `/functions/v1/models`.",
+        "",
+        "| Modelo | Descripción |",
+        "|--------------------------------------------|----------------------------------------------------------------|"
     ]
     for m in models:
-        lines.append(f"| {m['name']} | {m['description']} |\n")
-    return "\n".join(lines)
+        content.append(f"| {m['name']} | {m['description']} |")
+    return "\n".join(content) + "\n"
 
 def make_pricings_md(models):
     # Group models by type for each section
@@ -88,23 +90,24 @@ def make_pricings_md(models):
                     ])
                 break
 
-    lines = ["# Precios\n", "\n# TODO: Cargar dinámicamente de la db\n"]
+    content = ["# Precios", "", "# TODO: Cargar dinámicamente de la db"]
     for section in sections:
-        lines.append(f"\n## {section['title']}\n")
+        content.append("")
+        content.append(f"## {section['title']}")
         # Table header
         header = "| " + " | ".join(section["columns"]) + " |"
-        sep = "|" + "-" * (len(section["columns"][0]) + 2)
         sep = "|" + "|".join(["-" * (len(col) + 2) for col in section["columns"]]) + "|"
-        lines.append(header)
-        lines.append(sep)
+        content.append(header)
+        content.append(sep)
         # Table rows
-        for row in section["rows"]:
-            lines.append("| " + " | ".join(row) + " |")
+        for row_data in section["rows"]:
+            content.append("| " + " | ".join(row_data) + " |")
         if not section["rows"]:
             # Add a placeholder row if no models for this section
-            lines.append("| - |" + " |" * (len(section["columns"]) - 1))
-    lines.append("\n---")
-    return "\n".join(lines)
+            content.append("| - |" + " |" * (len(section["columns"]) - 1))
+    content.append("")
+    content.append("---")
+    return "\n".join(content) + "\n"
 
 modelos_md.write_text(make_modelos_md(data), encoding="utf-8")
 pricings_md.write_text(make_pricings_md(data), encoding="utf-8")
