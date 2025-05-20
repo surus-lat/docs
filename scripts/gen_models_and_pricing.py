@@ -26,12 +26,12 @@ data = resp.json()["data"]
 def make_modelos_md(models):
     lines = [
         "# Modelos Disponibles\n",
-        "\nConsultá los modelos disponibles también usando el endpoint `/functions/v1/models`.\n",
+        "\nConsultá los modelos disponibles también usando el endpoint `/functions/v1/models`.\n\n",
         "\n| Modelo | Descripción |\n",
         "|--------------------------------------------|----------------------------------------------------------------|\n"
     ]
     for m in models:
-        lines.append(f"| {m['name']} | {m['description']} |")
+        lines.append(f"| {m['name']} | {m['description']} |\n")
     return "\n".join(lines)
 
 def make_pricings_md(models):
