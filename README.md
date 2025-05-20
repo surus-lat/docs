@@ -1,35 +1,52 @@
 # GradienteSur API Docs
 
-Documentación oficial de la API de GradienteSur, compatible con OpenAI.
+Documentación oficial de la API de GradienteSur.
 
 ## Estructura
 
-La documentación está en la carpeta `docs/` y sigue el formato de [MkDocs](https://www.mkdocs.org/) para ser publicada en ReadTheDocs.
+La documentación está en la carpeta `docs/` y sigue el formato de [MkDocs](https://www.mkdocs.org/) para ser publicada en ReadTheDocs o cualquier hosting estático.
 
 ## Cómo construir la documentación localmente
 
-1. Instala MkDocs y el tema Material:
+1. Instalá los requerimientos:
    ```bash
-   pip install mkdocs mkdocs-material
+   pip install -r requirements.txt
    ```
-2. Levanta un servidor local para previsualizar:
+2. Levantá un servidor local para previsualizar:
    ```bash
    mkdocs serve
    ```
-3. Abre tu navegador en http://localhost:8000
-
-## Publicación en ReadTheDocs
-
-- Vincula este repositorio en https://readthedocs.org/
-- ReadTheDocs detectará automáticamente el archivo `mkdocs.yml` y construirá la documentación.
+3. Abrí tu navegador en http://localhost:8000
 
 ---
 
 ## Estructura de la documentación
 
 - `docs/index.md`: Introducción general
-- `docs/autenticacion.md`: Cómo autenticarse
-- `docs/endpoints.md`: Descripción de los endpoints
-- `docs/ejemplos.md`: Ejemplos de uso
-- `docs/faq.md`: Preguntas frecuentes
-- `mkdocs.yml`: Configuración de la documentación
+- `docs/comenzando/autenticacion.md`: Cómo autenticarse
+- `docs/comenzando/index.md`: Inicio rápido
+- `docs/apis.md`: APIs y ejemplos de uso
+- `docs/modelos.md`: Modelos disponibles
+- `docs/pricings.md`: Precios
+- `mkdocs.yml`: Configuración de la documentación y navegación
+- `scripts/gen_index.py`: Script para generar el índice dinámico
+
+---
+
+## Generación automática del índice
+
+El archivo `docs/index.md` se genera automáticamente a partir de la estructura definida en `mkdocs.yml` usando el script `scripts/gen_index.py` y el plugin `mkdocs-gen-files`. No edites `index.md` manualmente.
+
+Para regenerar el índice:
+
+```bash
+python scripts/gen_index.py
+```
+
+O simplemente al correr `mkdocs serve` o `mkdocs build`, el índice se actualizará automáticamente.
+
+---
+
+## Contribuciones
+
+¡Te invitamos a contribuir a la documentación! Si quisieras hacerlo, crea un issue o pull request.

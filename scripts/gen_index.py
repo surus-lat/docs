@@ -42,9 +42,10 @@ def main():
     files = [DOCS_DIR / f for f in ordered_files if (DOCS_DIR / f).exists() and f not in default_exclude]
 
     lines = [
+        
         "# Documentación de la API de GradienteSur\n",
         "Bienvenido/a a la documentación oficial de la API de GradienteSur!\n",
-        "Esta API ofrece modelos de IA compatibles con el formato de OpenAI, para que los integres de manera sencilla en todo tipo de tareas.\n",
+        "Esta API ofrece modelos de IA compatibles con el formato de OpenAI, para que los integres rápida y fácilmente para todo tipo de tareas.\n",
         "\n## Índice\n"
     ]
     for f in files:
