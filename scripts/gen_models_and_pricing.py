@@ -90,7 +90,7 @@ def make_pricings_md(models):
                     ])
                 break
 
-    content = ["# Precios", "", "# TODO: Cargar dinámicamente de la db"]
+    content = ["# Precios", ""]
     for section in sections:
         content.append("")
         content.append(f"## {section['title']}")

@@ -15,6 +15,8 @@ theme:
     - navigation.footer
   logo: gradiente.png
   favicon: gradiente.png
+extra_javascript:
+  - js/dynamic-loader.js
 markdown_extensions:
   - admonition
   - codehilite

@@ -19,7 +19,6 @@ build:
   jobs:
     pre_build:
       - python scripts/gen_index.py
-      - python scripts/gen_models_and_pricing.py
   commands: []
 
 # Build documentation with Mkdocs
