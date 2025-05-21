@@ -1,4 +1,4 @@
-site_name: GradienteSur API Docs
+site_name: Documentación API GradienteSur | Cómputo general y modelos de IA
 site_url: https://gradientesur.com/docs/
 nav:
   - Introducción: index.md
@@ -17,6 +17,9 @@ theme:
     - content.code.copy
   logo: gradiente.png
   favicon: gradiente.png
+  palette:
+    primary: indigo
+    accent: indigo
 extra_javascript:
   - js/dynamic-loader.js
 markdown_extensions:

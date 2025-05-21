@@ -1,4 +1,4 @@
-# Inicio rápido
+# Inicio Rápido: API de Chat Completions de GradienteSur
 
 
 Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
@@ -51,3 +51,6 @@ Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
       -H "Content-Type: application/json" \
       -d '{"model": "Qwen/Qwen3-1.7B", "messages": [{"role": "user", "content": "Hola, cómo estás?"}], "max_tokens": 200}'
     ```
+
+
+    Si ya tenés experiencia con la API de OpenAI, notarás que la API de GradienteSur es la misma en términos de estructura y uso.
