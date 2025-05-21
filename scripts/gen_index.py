@@ -22,6 +22,7 @@ def get_ordered_nav_files(mkdocs_yml_path):
         with open(mkdocs_yml_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
     except FileNotFoundError:
+        print(f"Warning: mkdocs.yml not found at {mkdocs_yml_path}")
         return [] # mkdocs.yml not found, return empty list
 
     in_nav_section = False
@@ -37,51 +38,62 @@ def get_ordered_nav_files(mkdocs_yml_path):
             continue
 
         if in_nav_section:
-            # If the current line is less or equally indented than "nav:" key,
-            # and it's not empty or a comment, then nav section has ended.
             if current_indent <= nav_section_base_indent and \
                stripped_line and not stripped_line.startswith("#"):
                 in_nav_section = False
-                break # Stop processing lines for nav
+                break 
 
-            # Only consider lines that are more indented than "nav:"
             if current_indent > nav_section_base_indent:
-                # Look for '.md' files, typically in quotes
-                match = re.search(r"['\"]([^'\"]+\.md)['\"]", line_content)
+                # Regex to find unquoted .md files after a colon (e.g., "Title: file.md")
+                # Allows alphanumeric, '.', '/', '_', '-' in paths.
+                match = re.search(r":\s*([A-Za-z0-9./_-]+\.md)", line_content)
                 if match:
                     ordered_files.append(match.group(1))
     
     return ordered_files
 
 def main():
-    # Parse mkdocs.yml to get nav order
     mkdocs_yml = Path(__file__).parent.parent / "mkdocs.yml"
     
-    # Get ordered list of md files from mkdocs.yml nav section
-    # This replaces the yaml parsing and extract_md_files logic
     nav_file_paths = get_ordered_nav_files(mkdocs_yml)
 
-    # Only include files that exist and are not excluded
-    files = []
-    for f_path_str in nav_file_paths:
-        resolved_path = DOCS_DIR / f_path_str
-        # Use f_path_str for exclusion check as default_exclude contains relative paths
-        if resolved_path.exists() and f_path_str not in default_exclude:
-            files.append(resolved_path)
-
     lines = [
-        
         "# Documentación de la API de GradienteSur\n",
         "Bienvenido/a a la documentación oficial de la API de GradienteSur!\n",
         "Esta API ofrece modelos de IA compatibles con el formato de OpenAI, para que los integres rápida y fácilmente para todo tipo de tareas.\n",
         "\n## Índice\n"
     ]
-    for f in files:
-        title = get_title(f)
-        lines.append(f"- [{title}]({f.name})")
+    
+    linked_files_count = 0
+    if not nav_file_paths:
+        print("Warning: No navigation paths found in mkdocs.yml or mkdocs.yml not parsed correctly.")
+
+    for nav_path_str in nav_file_paths:
+        # nav_path_str is relative to DOCS_DIR, e.g., "comenzando/autenticacion.md" or "index.md"
+        if nav_path_str in default_exclude: # Excludes the main index.md from being listed in itself
+            continue
+
+        resolved_md_path = DOCS_DIR / nav_path_str
+        if resolved_md_path.exists():
+            title = get_title(resolved_md_path)
+            # Use nav_path_str for the link, as it's already relative to DOCS_DIR
+            lines.append(f"- [{title}]({nav_path_str})")
+            linked_files_count += 1
+        else:
+            print(f"Warning: File '{resolved_md_path}' specified in nav not found.")
+
     lines.append("\n---\n")
+    lines.append("## Contribuciones\n")
+    lines.append("Te invitamos a contribuir a la documentación! Si quisieras hacerlo, crea un issue o pull request en nuestro [repositorio de GitHub](https://github.com/GradienteSur/docs).\n")
+    
     with open(INDEX_MD, "w", encoding="utf-8") as out:
         out.write("\n".join(lines))
+
+    if linked_files_count > 0:
+        print(f"Successfully generated {INDEX_MD} with {linked_files_count} links.")
+    else:
+        print(f"Warning: {INDEX_MD} was generated, but no files were indexed. "
+              "Check mkdocs.yml nav structure, file paths, and script logic if this is unexpected.")
 
 if __name__ == "__main__":
     main()

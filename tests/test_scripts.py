@@ -23,7 +23,6 @@ def test_index_md_exists():
     assert "## Índice" in content
 
 def test_modelos_and_pricings_md_exist():
-    script = Path(__file__).parent.parent / "scripts" / "gen_models_and_pricing.py"
     docs_dir = Path(__file__).parent.parent / "docs"
     modelos_md = docs_dir / "modelos.md"
     pricings_md = docs_dir / "pricings.md"
@@ -44,7 +43,6 @@ def test_modelos_and_pricings_md_exist():
                 ]}
         return FakeResp()
     requests.get = fake_get
-    import_script(script)
     assert modelos_md.exists(), "modelos.md should be generated"
     assert pricings_md.exists(), "pricings.md should be generated"
     modelos_content = modelos_md.read_text(encoding="utf-8")
