@@ -8,6 +8,7 @@ nav:
   - APIs: apis.md
   - Modelos: modelos.md
   - Precios: pricings.md
+  - Changelog: changelog.md
 theme:
   name: material
   language: es
