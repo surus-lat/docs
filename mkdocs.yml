@@ -13,13 +13,16 @@ theme:
   language: es
   features:
     - navigation.footer
+    - content.code.copy
   logo: gradiente.png
   favicon: gradiente.png
 extra_javascript:
   - js/dynamic-loader.js
 markdown_extensions:
   - admonition
-  - codehilite
+  - codehilite:
+      use_pygments: true
+      noclasses: true
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
