@@ -5,7 +5,14 @@ nav:
   - Comenzando:
       - Autenticación: comenzando/autenticacion.md
       - Inicio rápido: comenzando/index.md
-  - APIs: apis.md
+  - APIs:
+      - Resumen: apis.md
+      - Chat Completions: apis/chat-completions.md
+      - Chat Completions con Imagen: apis/chat-completions-vision.md
+      - Audio Transcriptions: apis/audio-transcriptions.md
+      - Audio Speech: apis/audio-speech.md
+      - Embeddings: apis/embeddings.md
+      - Listar Modelos (Endpoint): apis/models-endpoint.md
   - Modelos: modelos.md
   - Precios: pricings.md
   - Changelog: changelog.md
