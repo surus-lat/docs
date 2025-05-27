@@ -126,6 +126,12 @@ Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir 
 
 === "Python"
     ```python
+    import requests
+
+    GS_API_KEY = "tu_clave_api"
+    API_URL = "https://api.gradientesur.com/functions/v1/chat/completions"
+    headers = {"Authorization": "Bearer " + GS_API_KEY}
+
     data = {
         "model": "OpenGVLab/InternVL3-2B",
         "messages": [
@@ -138,6 +144,9 @@ Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir 
         "top_k": 10,
         "guided_choice": ["Es un perro.", "Es un gato."]
     }
+
+    response = requests.post(API_URL, headers=headers, json=data)
+    print(response.json())
     ```
 
 === "JavaScript"
@@ -168,7 +177,7 @@ Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir 
     ```
 
 === "cURL"
-```bash
+    ```bash
     curl -X POST https://api.gradientesur.com/functions/v1/chat/completions \
     -H "Authorization: Bearer tu_clave_api" \
     -H "Content-Type: application/json" \

@@ -121,6 +121,12 @@ Podés enviar los siguientes parámetros adicionales en tu petición para contro
 
 === "Python"
     ```python
+    import requests
+
+    GS_API_KEY = "tu_clave_api"
+    API_URL = "https://api.gradientesur.com/functions/v1/chat/completions"
+    headers = {"Authorization": "Bearer " + GS_API_KEY}
+
     data = {
         "model": "Qwen/Qwen3-1.7B",
         "messages": [{"role": "user", "content": "Hola, cómo estás?"}],
@@ -129,6 +135,9 @@ Podés enviar los siguientes parámetros adicionales en tu petición para contro
         "repetition_penalty": 1.1,
         "guided_regex": ".*\\?$"
     }
+
+    response = requests.post(API_URL, headers=headers, json=data)
+    print(response.json())
     ```
 
 === "JavaScript"
