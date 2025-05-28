@@ -77,20 +77,40 @@ En el caso que que querramos una dimensionalidad más comprimida (en vez de las 
 
 === "Python"
     ```python
+    import requests
+
+    GS_API_KEY = "tu_clave_api"
+    API_URL = "https://api.gradientesur.com/functions/v1/embeddings"
+    headers = {"Authorization": "Bearer " + GS_API_KEY}
+
     data = {
         "model": "nomic-ai/nomic-embed-text-v1.5",
         "input": ["Hola mundo", "Cómo estás?"],
         "dimensions": 256
     }
+
+    response = requests.post(API_URL, headers=headers, json=data)
+    print(response.json())
     ```
 
 === "JavaScript"
     ```javascript
-    body: JSON.stringify({
-        model: 'nomic-ai/nomic-embed-text-v1.5',
-        input: ['Hola mundo', 'Cómo estás?'],
-        dimensions: 256
-      })
+    const GS_API_KEY = "tu_clave_api";
+    const API_URL = 'https://api.gradientesur.com/functions/v1/embeddings';
+    fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + GS_API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          model: 'nomic-ai/nomic-embed-text-v1.5',
+          input: ['Hola mundo', 'Cómo estás?'],
+          dimensions: 256
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
     ```
 
 === "cURL"
