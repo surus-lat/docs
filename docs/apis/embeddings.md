@@ -72,4 +72,33 @@ Este endpoint genera representaciones vectoriales (embeddings) de texto. Los emb
 }
 ```
 
+## Cantidad de dimensiones
+En el caso que que querramos una dimensionalidad más comprimida (en vez de las 768 dimensiones por defecto), podemos especificar el parámetro `dimensions` en la petición. Por ejemplo, para obtener embeddings de 256 dimensiones:
+
+=== "Python"
+    ```python
+    data = {
+        "model": "nomic-ai/nomic-embed-text-v1.5",
+        "input": ["Hola mundo", "Cómo estás?"],
+        "dimensions": 256
+    }
+    ```
+
+=== "JavaScript"
+    ```javascript
+    body: JSON.stringify({
+        model: 'nomic-ai/nomic-embed-text-v1.5',
+        input: ['Hola mundo', 'Cómo estás?'],
+        dimensions: 256
+      })
+    ```
+
+=== "cURL"
+    ```bash
+    curl -X POST https://api.gradientesur.com/functions/v1/embeddings \
+      -H "Authorization: Bearer tu_clave_api" \
+      -H "Content-Type: application/json" \
+      -d '{"model": "nomic-ai/nomic-embed-text-v1.5", "input": ["Hola mundo", "Cómo estás?"], "dimensions": 256}'
+    ```
+
 ---
