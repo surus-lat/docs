@@ -6,7 +6,7 @@ Es una clave única que te identifica como usuario y te permite acceder a los se
 
 ## ¿Cómo obtengo mi API Key?
 
-Puedes generar tu API Key accediendo a [https://gradientesur.com/api-keys](https://gradientesur.com/api-keys). Si tienes problemas para obtenerla, contacta a soporte.
+Podés generar tu API Key accediendo a [https://gradientesur.com/api-keys](https://gradientesur.com/api-keys). Si tienes problemas para obtenerla, contacta a soporte.
 
 ## ¿Cómo se usa la API Key?
 

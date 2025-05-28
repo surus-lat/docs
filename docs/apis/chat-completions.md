@@ -1,6 +1,6 @@
 # Chat Completions
 
-Este endpoint te permite generar respuestas de texto basadas en una conversación. Puedes enviar una serie de mensajes y el modelo continuará la conversación.
+Este endpoint te permite generar respuestas de texto basadas en una conversación. Podés enviar una serie de mensajes y el modelo continuará la conversación.
 
 === "Python"
     ```python
