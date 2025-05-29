@@ -2,6 +2,8 @@
 
 Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones que necesiten generar audio a partir de texto, como asistentes virtuales, audiolibros, etc.
 
+### Solicitud
+
 === "Python"
     ```python
     import requests
@@ -57,7 +59,8 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
       -d '{"model": "marianbasti/Llama-3.2-3B-Orpheus-Rioplatense-1795", "input": "Hola, ¿cómo estás?", "voice": "female", "response_format": "wav"}' --output output.wav
     ```
 
-## Ejemplo de respuesta:
+### Respuesta
+
 ```json
 {
     "audio": "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQ=="

@@ -2,6 +2,8 @@
 
 Este endpoint convierte archivos de audio en texto. Es útil para transcribir grabaciones, entrevistas, etc.
 
+## Solicitud
+
 === "Python"
     ```python
     import requests
@@ -43,7 +45,7 @@ Este endpoint convierte archivos de audio en texto. Es útil para transcribir gr
       -F "audio=@file.wav"
     ```
     
-## Ejemplo de respuesta:
+### Respuesta
 
 ```json
 {
@@ -53,9 +55,9 @@ Este endpoint convierte archivos de audio en texto. Es útil para transcribir gr
 
 ---
 
-## Parámetros extra soportados
+## Parámetros extra
 
-Podés enviar los siguientes parámetros adicionales en tu petición para controlar el comportamiento de la transcripción y el formato de la respuesta.
+Podés enviar los siguientes parámetros adicionales para controlar el comportamiento de la generación y el formato de la respuesta.
 
 ### Parámetros de formato y salida
 

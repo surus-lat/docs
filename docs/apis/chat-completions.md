@@ -2,6 +2,8 @@
 
 Este endpoint te permite generar respuestas de texto basadas en una conversación. Podés enviar una serie de mensajes y el modelo continuará la conversación.
 
+### Solicitud
+
 === "Python"
     ```python
     import requests
@@ -51,7 +53,8 @@ Este endpoint te permite generar respuestas de texto basadas en una conversació
       -d '{"model": "Qwen/Qwen3-1.7B", "messages": [{"role": "user", "content": "Hola, cómo estás?"}], "max_tokens": 200}'
     ```
 
-## Ejemplo de respuesta:
+### Respuesta:
+
 ```json
 {
   "id": "chatcmpl-ec1e82a53ab04d20b5560ec4c6b1f16a",
@@ -84,9 +87,9 @@ Este endpoint te permite generar respuestas de texto basadas en una conversació
 
 ---
 
-## Parámetros extra soportados
+## Parámetros extra
 
-Podés enviar los siguientes parámetros adicionales en tu petición para controlar el comportamiento de la generación y el formato de la respuesta.
+Podés enviar los siguientes parámetros adicionales para controlar el comportamiento de la generación y el formato de la respuesta.
 
 ### Parámetros de muestreo
 

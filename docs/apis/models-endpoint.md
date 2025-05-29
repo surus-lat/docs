@@ -1,15 +1,18 @@
-# Listar Modelos (Endpoint API)
+# Modelos
 
-Este endpoint te permite obtener una lista de todos los modelos de IA actualmente disponibles a través de la API de GradienteSur. Con esta información podés seleccionar dinámicamente modelos en tu aplicación o mostrarle a los usuarios las opciones disponibles.
+Con este endpoint obtenés una lista de todos los modelos de IA actualmente disponibles a través de la API de GradienteSur.
 
-La página general de [Modelos Disponibles](../modelos.md) también lista esta información y se actualiza dinámicamente usando este endpoint.
+La página general de [Modelos Disponibles](../modelos.md) se actualiza dinámicamente usando este endpoint.
+
+### Solicitud
 
 ```bash
 curl -X GET https://api.gradientesur.com/functions/v1/models \
   -H "Authorization: Bearer tu_clave_api"
 ```
 
-## Ejemplo de respuesta:
+### Respuesta
+
 ```json
 {
   "data": [

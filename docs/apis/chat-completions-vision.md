@@ -2,6 +2,8 @@
 
 Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir imágenes en la conversación. El modelo puede analizar o describir el contenido de las imágenes proporcionadas.
 
+### Solicitud
+
 === "Python"
     ```python
     import requests
@@ -58,7 +60,8 @@ Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir 
       -d '{"model": "OpenGVLab/InternVL3-2B", "messages": [{"role": "user", "content": [{"type": "text", "text": "Qué hay en esta imagen?"}, {"type": "image_url", "image_url": {"url": "https://i.imgur.com/IqAOn4t.jpeg"}}]}], "max_tokens": 50}'
     ```
 
-## Ejemplo de respuesta:
+### Respuesta:
+
 ```json
 {
   "id": "chatcmpl-638c8ca8b3254905bcfb2265a616c5eb",
@@ -90,6 +93,10 @@ Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir 
 ```
 
 ---
+
+## Parámetros extra
+
+Podés enviar los siguientes parámetros adicionales para controlar el comportamiento de la generación y el formato de la respuesta.
 
 ### Parámetros de muestreo
 

@@ -2,6 +2,8 @@
 
 Este endpoint genera representaciones vectoriales (embeddings) de texto. Los embeddings son útiles para crear bases de datos vectoriales para tareas como búsqueda semántica, clustering y clasificación de texto.
 
+### Solicitud
+
 === "Python"
     ```python
     import requests
@@ -46,7 +48,8 @@ Este endpoint genera representaciones vectoriales (embeddings) de texto. Los emb
       -d '{"model": "nomic-ai/nomic-embed-text-v1.5", "input": ["Hola mundo", "Cómo estás?"]}'
     ```
     
-## Ejemplo de respuesta:
+### Respuesta:
+
 ```json
 {
     "object": "list",
