@@ -1,21 +1,21 @@
 site_name: Documentación API GradienteSur | Cómputo general y modelos de IA
 site_url: https://gradientesur.com/docs/
 nav:
-  - Introducción: index.md
-  - Comenzando:
-      - Autenticación: comenzando/autenticacion.md
-      - Inicio rápido: comenzando/index.md
+  - introducción: index.md
+  - comenzando:
+      - autenticación: comenzando/autenticacion.md
+      - inicio rápido: comenzando/index.md
   - APIs:
-      - Resumen: apis.md
-      - Chat Completions: apis/chat-completions.md
-      - Chat Completions con Imagen: apis/chat-completions-vision.md
-      - Audio Transcriptions: apis/audio-transcriptions.md
-      - Audio Speech: apis/audio-speech.md
-      - Embeddings: apis/embeddings.md
-      - Listar Modelos (Endpoint): apis/models-endpoint.md
-  - Modelos: modelos.md
-  - Precios: pricings.md
-  - Changelog: changelog.md
+      - resumen: apis.md
+      - chat completions: apis/chat-completions.md
+      - chat completions con imagen: apis/chat-completions-vision.md
+      - audio transcriptions: apis/audio-transcriptions.md
+      - audio speech: apis/audio-speech.md
+      - embeddings: apis/embeddings.md
+      - modelos disponibles: apis/models-endpoint.md
+  - modelos: modelos.md
+  - precios: pricings.md
+  - changelog: changelog.md
 theme:
   name: material
   language: es
