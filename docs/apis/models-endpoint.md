@@ -73,10 +73,9 @@ curl -X GET https://api.gradientesur.com/functions/v1/models \
       "object": "model",
       "owned_by": "GS",
       "created": "2025-05-12T22:16:39.169061+00:00"
-    },
-
-...
-
+    }
+    // Otros modelos...
+  ]
 }
 ```
 ---
