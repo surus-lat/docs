@@ -8,7 +8,7 @@ Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/chat/completions"
+    API_URL = "https://api.surus.dev/functions/v1/chat/completions"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     data = {
@@ -24,7 +24,7 @@ Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/chat/completions';
+    const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
     fetch(API_URL, {
         method: 'POST',
         headers: {
@@ -46,7 +46,7 @@ Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/chat/completions \
+    curl -X POST https://api.surus.dev/functions/v1/chat/completions \
       -H "Authorization: Bearer tu_clave_api" \
       -H "Content-Type: application/json" \
       -d '{"model": "Qwen/Qwen3-1.7B", "messages": [{"role": "user", "content": "Hola, cómo estás?"}], "max_tokens": 200}'

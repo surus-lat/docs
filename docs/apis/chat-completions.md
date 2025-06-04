@@ -9,7 +9,7 @@ Este endpoint te permite generar respuestas de texto basadas en una conversació
     import requests
 
     GS_API_KEY= "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/chat/completions"
+    API_URL = "https://api.surus.dev/functions/v1/chat/completions"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     data = {
@@ -25,7 +25,7 @@ Este endpoint te permite generar respuestas de texto basadas en una conversació
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/chat/completions';
+    const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
     fetch(API_URL, {
         method: 'POST',
         headers: {
@@ -47,7 +47,7 @@ Este endpoint te permite generar respuestas de texto basadas en una conversació
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/chat/completions \
+    curl -X POST https://api.surus.dev/functions/v1/chat/completions \
       -H "Authorization: Bearer tu_clave_api" \
       -H "Content-Type: application/json" \
       -d '{"model": "Qwen/Qwen3-1.7B", "messages": [{"role": "user", "content": "Hola, cómo estás?"}], "max_tokens": 200}'
@@ -127,7 +127,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/chat/completions"
+    API_URL = "https://api.surus.dev/functions/v1/chat/completions"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     data = {
@@ -146,7 +146,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/chat/completions';
+    const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
     fetch(API_URL, {
         method: 'POST',
         headers: {
@@ -168,7 +168,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/chat/completions \
+    curl -X POST https://api.surus.dev/functions/v1/chat/completions \
       -H "Authorization: Bearer tu_clave_api" \
       -H "Content-Type: application/json" \
       -d '{"model": "Qwen/Qwen3-1.7B", "messages": [{"role": "user", "content": "Hola, cómo estás?"}], "max_tokens": 200, "top_k": 20, "repetition_penalty": 1.1, "guided_regex": ".*\\?$"}'

@@ -1,5 +1,5 @@
 site_name: Documentación API GradienteSur | Cómputo general y modelos de IA
-site_url: https://gradientesur.com/docs/
+site_url: https://surus.dev/docs/
 nav:
   - Introducción: index.md
   - Comenzando:

@@ -5,14 +5,12 @@ Con este endpoint obtenés una lista de todos los modelos de IA actualmente disp
 La página general de [Modelos Disponibles](../modelos.md) se actualiza dinámicamente usando este endpoint.
 
 ### Solicitud
-
 ```bash
-curl -X GET https://api.gradientesur.com/functions/v1/models \
+curl -X GET https://api.surus.dev/functions/v1/models \
   -H "Authorization: Bearer tu_clave_api"
 ```
 
 ### Respuesta
-
 ```json
 {
   "data": [

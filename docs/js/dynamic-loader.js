@@ -1,5 +1,5 @@
 async function fetchModelsAndPricingsFromAPI() {
-    const apiUrl = 'https://api.gradientesur.com/functions/v1/models';
+    const apiUrl = 'https://api.surus.dev/functions/v1/models';
     // IMPORTANT: Security reminder - this endpoint should be public or use a secure client-side auth method.
     // Do not embed sensitive API keys here.
     try {

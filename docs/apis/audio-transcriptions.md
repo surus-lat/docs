@@ -9,7 +9,7 @@ Este endpoint convierte archivos de audio en texto. Es útil para transcribir gr
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/audio/transcriptions"
+    API_URL = "https://api.surus.dev/functions/v1/audio/transcriptions"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     with open('audio.wav', 'rb') as f:
@@ -22,7 +22,7 @@ Este endpoint convierte archivos de audio en texto. Es útil para transcribir gr
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/audio/transcriptions';
+    const API_URL = 'https://api.surus.dev/functions/v1/audio/transcriptions';
     const formData = new FormData();
     formData.append('model', 'marianbasti/whisper-large-v3-turbo-latam');
     formData.append('audio', audioFileInput.files[0]); // audioFileInput is an <input type='file'>
@@ -39,7 +39,7 @@ Este endpoint convierte archivos de audio en texto. Es útil para transcribir gr
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/audio/transcriptions \
+    curl -X POST https://api.surus.dev/functions/v1/audio/transcriptions \
       -H "Authorization: Bearer tu_clave_api" \
       -F "model=marianbasti/whisper-large-v3-turbo-latam" \
       -F "audio=@file.wav"
@@ -71,7 +71,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/audio/transcriptions"
+    API_URL = "https://api.surus.dev/functions/v1/audio/transcriptions"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     with open('audio.wav', 'rb') as f:
@@ -89,7 +89,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/audio/transcriptions';
+    const API_URL = 'https://api.surus.dev/functions/v1/audio/transcriptions';
     const formData = new FormData();
     formData.append('model', 'marianbasti/whisper-large-v3-turbo-latam');
     formData.append('audio', audioFileInput.files[0]);
@@ -111,7 +111,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/audio/transcriptions \
+    curl -X POST https://api.surus.dev/functions/v1/audio/transcriptions \
       -H "Authorization: Bearer tu_clave_api" \
       -F "model=marianbasti/whisper-large-v3-turbo-latam" \
       -F "audio=@file.wav" \

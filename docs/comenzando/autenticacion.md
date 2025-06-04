@@ -6,7 +6,7 @@ Es una clave única que te identifica como usuario y te permite acceder a los se
 
 ## ¿Cómo obtengo mi API Key?
 
-Podés generar tu API Key accediendo a [https://gradientesur.com/api-keys](https://gradientesur.com/api-keys). Si tienes problemas para obtenerla, contacta a soporte.
+Podés generar tu API Key accediendo a [https://surus.dev/api-keys](https://surus.dev/api-keys). Si tienes problemas para obtenerla, contacta a soporte.
 
 ## ¿Cómo se usa la API Key?
 
@@ -16,7 +16,7 @@ Debes incluir la API Key en el encabezado `Authorization` de cada petición, pre
 === "Python"
     ```python
     import requests
-    url = "https://api.gradientesur.com/functions/v1/models"
+    url = "https://api.surus.dev/functions/v1/models"
     headers = {"Authorization": "Bearer tu_clave_api"}
     response = requests.get(url, headers=headers)
     print(response.json())
@@ -25,7 +25,7 @@ Debes incluir la API Key en el encabezado `Authorization` de cada petición, pre
 === "JavaScript"
     ```js
     const fetch = require('node-fetch');
-    const url = 'https://api.gradientesur.com/functions/v1/models';
+    const url = 'https://api.surus.dev/functions/v1/models';
     const headers = {
       'Authorization': 'Bearer tu_clave_api'
     };
@@ -39,7 +39,7 @@ Debes incluir la API Key en el encabezado `Authorization` de cada petición, pre
 
 === "cURL"
     ```bash
-    curl -X GET https://api.gradientesur.com/functions/v1/models \
+    curl -X GET https://api.surus.dev/functions/v1/models \
       -H "Authorization: Bearer tu_clave_api"
     ```
 

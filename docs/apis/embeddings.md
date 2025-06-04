@@ -9,7 +9,7 @@ Este endpoint genera representaciones vectoriales (embeddings) de texto. Los emb
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/embeddings"
+    API_URL = "https://api.surus.dev/functions/v1/embeddings"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     data = {
@@ -24,7 +24,7 @@ Este endpoint genera representaciones vectoriales (embeddings) de texto. Los emb
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/embeddings';
+    const API_URL = 'https://api.surus.dev/functions/v1/embeddings';
     fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -42,7 +42,7 @@ Este endpoint genera representaciones vectoriales (embeddings) de texto. Los emb
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/embeddings \
+    curl -X POST https://api.surus.dev/functions/v1/embeddings \
       -H "Authorization: Bearer tu_clave_api" \
       -H "Content-Type: application/json" \
       -d '{"model": "nomic-ai/nomic-embed-text-v1.5", "input": ["Hola mundo", "Cómo estás?"]}'
@@ -83,7 +83,7 @@ En el caso que que querramos una dimensionalidad más comprimida (en vez de las 
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/embeddings"
+    API_URL = "https://api.surus.dev/functions/v1/embeddings"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     data = {
@@ -99,7 +99,7 @@ En el caso que que querramos una dimensionalidad más comprimida (en vez de las 
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/embeddings';
+    const API_URL = 'https://api.surus.dev/functions/v1/embeddings';
     fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -118,7 +118,7 @@ En el caso que que querramos una dimensionalidad más comprimida (en vez de las 
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/embeddings \
+    curl -X POST https://api.surus.dev/functions/v1/embeddings \
       -H "Authorization: Bearer tu_clave_api" \
       -H "Content-Type: application/json" \
       -d '{"model": "nomic-ai/nomic-embed-text-v1.5", "input": ["Hola mundo", "Cómo estás?"], "dimensions": 256}'

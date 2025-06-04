@@ -9,7 +9,7 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/audio/speech"
+    API_URL = "https://api.surus.dev/functions/v1/audio/speech"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     data = {
@@ -27,7 +27,7 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/audio/speech';
+    const API_URL = 'https://api.surus.dev/functions/v1/audio/speech';
     fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -53,7 +53,7 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/audio/speech \
+    curl -X POST https://api.surus.dev/functions/v1/audio/speech \
       -H "Authorization: Bearer tu_clave_api" \
       -H "Content-Type: application/json" \
       -d '{"model": "marianbasti/Llama-3.2-3B-Orpheus-Rioplatense-1795", "input": "Hola, ¿cómo estás?", "voice": "female", "response_format": "wav"}' --output output.wav

@@ -9,7 +9,7 @@ Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir 
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/chat/completions"
+    API_URL = "https://api.surus.dev/functions/v1/chat/completions"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     data = {
@@ -30,7 +30,7 @@ Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir 
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/chat/completions';
+    const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
     fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -54,7 +54,7 @@ Este endpoint extiende la funcionalidad de Chat Completions permitiendo incluir 
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/chat/completions \
+    curl -X POST https://api.surus.dev/functions/v1/chat/completions \
       -H "Authorization: Bearer tu_clave_api" \
       -H "Content-Type: application/json" \
       -d '{"model": "OpenGVLab/InternVL3-2B", "messages": [{"role": "user", "content": [{"type": "text", "text": "Qué hay en esta imagen?"}, {"type": "image_url", "image_url": {"url": "https://i.imgur.com/IqAOn4t.jpeg"}}]}], "max_tokens": 50}'
@@ -136,7 +136,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
     import requests
 
     GS_API_KEY = "tu_clave_api"
-    API_URL = "https://api.gradientesur.com/functions/v1/chat/completions"
+    API_URL = "https://api.surus.dev/functions/v1/chat/completions"
     headers = {"Authorization": "Bearer " + GS_API_KEY}
 
     data = {
@@ -159,7 +159,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
 === "JavaScript"
     ```javascript
     const GS_API_KEY = "tu_clave_api";
-    const API_URL = 'https://api.gradientesur.com/functions/v1/chat/completions';
+    const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
     fetch(API_URL, {
     method: 'POST',
     headers: {
@@ -185,7 +185,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
 
 === "cURL"
     ```bash
-    curl -X POST https://api.gradientesur.com/functions/v1/chat/completions \
+    curl -X POST https://api.surus.dev/functions/v1/chat/completions \
     -H "Authorization: Bearer tu_clave_api" \
     -H "Content-Type: application/json" \
     -d '{"model": "OpenGVLab/InternVL3-2B", "messages": [{"role": "user", "content": [{"type": "text", "text": "Describe la imagen."}, {"type": "image_url", "image_url": {"url": "https://i.imgur.com/IqAOn4t.jpeg"}}]}], "max_tokens": 50, "top_k": 10, "guided_choice": ["Es un perro.", "Es un gato."]}'
