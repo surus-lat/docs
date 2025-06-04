@@ -8,9 +8,9 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
     ```python
     import requests
 
-    GS_API_KEY = "tu_clave_api"
+    SURUS_API_KEY = "tu_clave_api"
     API_URL = "https://api.surus.dev/functions/v1/audio/speech"
-    headers = {"Authorization": "Bearer " + GS_API_KEY}
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     data = {
         "model": "marianbasti/Llama-3.2-3B-Orpheus-Rioplatense-1795",
@@ -26,12 +26,12 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
 
 === "JavaScript"
     ```javascript
-    const GS_API_KEY = "tu_clave_api";
+    const SURUS_API_KEY = "tu_clave_api";
     const API_URL = 'https://api.surus.dev/functions/v1/audio/speech';
     fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + GS_API_KEY,
+        'Authorization': 'Bearer ' + SURUS_API_KEY,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({

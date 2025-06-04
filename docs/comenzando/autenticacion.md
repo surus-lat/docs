@@ -1,8 +1,8 @@
 # Autenticación
 
-Para utilizar la API de GradienteSur es necesario autenticarse mediante una API Key.
+Para utilizar la API de surus es necesario autenticarse mediante una API Key.
 
-Es una clave única que te identifica como usuario y te permite acceder a los servicios de la API de GradienteSur. Es importante mantenerla segura y no compartirla públicamente.
+Es una clave única que te identifica como usuario y te permite acceder a los servicios de la API de surus. Es importante mantenerla segura y no compartirla públicamente.
 
 ## ¿Cómo obtengo mi API Key?
 

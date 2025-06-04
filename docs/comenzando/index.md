@@ -1,4 +1,4 @@
-# Inicio Rápido: API de Chat Completions de GradienteSur
+# Inicio Rápido: API de Chat Completions de surus
 
 
 Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
@@ -7,9 +7,9 @@ Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
     ```python
     import requests
 
-    GS_API_KEY = "tu_clave_api"
+    SURUS_API_KEY = "tu_clave_api"
     API_URL = "https://api.surus.dev/functions/v1/chat/completions"
-    headers = {"Authorization": "Bearer " + GS_API_KEY}
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     data = {
         "model": "Qwen/Qwen3-1.7B",
@@ -23,12 +23,12 @@ Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
 
 === "JavaScript"
     ```javascript
-    const GS_API_KEY = "tu_clave_api";
+    const SURUS_API_KEY = "tu_clave_api";
     const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
     fetch(API_URL, {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ' + GS_API_KEY,
+            'Authorization': 'Bearer ' + SURUS_API_KEY,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -53,4 +53,4 @@ Este es un ejemplo básico de cómo realizar una llamada a la API de chat:
     ```
 
 
-    Si ya tenés experiencia con la API de OpenAI, notarás que la API de GradienteSur es la misma en términos de estructura y uso.
+    Si ya tenés experiencia con la API de OpenAI, notarás que la API de surus es la misma en términos de estructura y uso.

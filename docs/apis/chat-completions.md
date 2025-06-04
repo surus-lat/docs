@@ -8,9 +8,9 @@ Este endpoint te permite generar respuestas de texto basadas en una conversació
     ```python
     import requests
 
-    GS_API_KEY= "tu_clave_api"
+    SURUS_API_KEY= "tu_clave_api"
     API_URL = "https://api.surus.dev/functions/v1/chat/completions"
-    headers = {"Authorization": "Bearer " + GS_API_KEY}
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     data = {
         "model": "Qwen/Qwen3-1.7B",
@@ -24,12 +24,12 @@ Este endpoint te permite generar respuestas de texto basadas en una conversació
 
 === "JavaScript"
     ```javascript
-    const GS_API_KEY = "tu_clave_api";
+    const SURUS_API_KEY = "tu_clave_api";
     const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
     fetch(API_URL, {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ' + GS_API_KEY,
+            'Authorization': 'Bearer ' + SURUS_API_KEY,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -126,9 +126,9 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
     ```python
     import requests
 
-    GS_API_KEY = "tu_clave_api"
+    SURUS_API_KEY = "tu_clave_api"
     API_URL = "https://api.surus.dev/functions/v1/chat/completions"
-    headers = {"Authorization": "Bearer " + GS_API_KEY}
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     data = {
         "model": "Qwen/Qwen3-1.7B",
@@ -145,12 +145,12 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
 
 === "JavaScript"
     ```javascript
-    const GS_API_KEY = "tu_clave_api";
+    const SURUS_API_KEY = "tu_clave_api";
     const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
     fetch(API_URL, {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ' + GS_API_KEY,
+            'Authorization': 'Bearer ' + SURUS_API_KEY,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({

@@ -8,9 +8,9 @@ Este endpoint genera representaciones vectoriales (embeddings) de texto. Los emb
     ```python
     import requests
 
-    GS_API_KEY = "tu_clave_api"
+    SURUS_API_KEY = "tu_clave_api"
     API_URL = "https://api.surus.dev/functions/v1/embeddings"
-    headers = {"Authorization": "Bearer " + GS_API_KEY}
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     data = {
         "model": "nomic-ai/nomic-embed-text-v1.5",
@@ -23,12 +23,12 @@ Este endpoint genera representaciones vectoriales (embeddings) de texto. Los emb
 
 === "JavaScript"
     ```javascript
-    const GS_API_KEY = "tu_clave_api";
+    const SURUS_API_KEY = "tu_clave_api";
     const API_URL = 'https://api.surus.dev/functions/v1/embeddings';
     fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + GS_API_KEY,
+        'Authorization': 'Bearer ' + SURUS_API_KEY,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -82,9 +82,9 @@ En el caso que que querramos una dimensionalidad más comprimida (en vez de las 
     ```python
     import requests
 
-    GS_API_KEY = "tu_clave_api"
+    SURUS_API_KEY = "tu_clave_api"
     API_URL = "https://api.surus.dev/functions/v1/embeddings"
-    headers = {"Authorization": "Bearer " + GS_API_KEY}
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     data = {
         "model": "nomic-ai/nomic-embed-text-v1.5",
@@ -98,12 +98,12 @@ En el caso que que querramos una dimensionalidad más comprimida (en vez de las 
 
 === "JavaScript"
     ```javascript
-    const GS_API_KEY = "tu_clave_api";
+    const SURUS_API_KEY = "tu_clave_api";
     const API_URL = 'https://api.surus.dev/functions/v1/embeddings';
     fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + GS_API_KEY,
+        'Authorization': 'Bearer ' + SURUS_API_KEY,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({

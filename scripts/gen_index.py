@@ -58,8 +58,8 @@ def main():
     nav_file_paths = get_ordered_nav_files(mkdocs_yml)
 
     lines = [
-        "# Documentación de la API de GradienteSur\n",
-        "Bienvenido/a a la documentación oficial de la API de GradienteSur!\n",
+        "# Documentación de la API de surus\n",
+        "Bienvenido/a a la documentación oficial de la API de surus!\n",
         "Esta API ofrece modelos de IA compatibles con el formato de OpenAI, para que los integres rápida y fácilmente para todo tipo de tareas.\n",
         "\n## Índice\n"
     ]

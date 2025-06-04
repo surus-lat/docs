@@ -19,7 +19,7 @@ def test_index_md_exists():
     import_script(script)
     assert index_md.exists(), "index.md should be generated"
     content = index_md.read_text(encoding="utf-8")
-    assert "# Documentación de la API de GradienteSur" in content
+    assert "# Documentación de la API de surus" in content
     assert "## Índice" in content
 
 def test_modelos_and_pricings_md_exist():
@@ -28,7 +28,7 @@ def test_modelos_and_pricings_md_exist():
     pricings_md = docs_dir / "pricings.md"
     # Set a dummy API key to avoid sys.exit(1)
     import os
-    os.environ["GRADIENTESUR_API_KEY"] = "dummy"
+    os.environ["SURUS_API_KEY"] = "dummy"
     # Patch requests.get to avoid real API call
     import types
     import requests

@@ -1,6 +1,6 @@
-# GradienteSur API Docs
+# surus API Docs
 
-Documentación oficial de la API de GradienteSur.
+Documentación oficial de la API de surus.
 
 ## Estructura
 

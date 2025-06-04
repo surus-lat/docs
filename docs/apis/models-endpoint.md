@@ -1,6 +1,6 @@
 # Modelos
 
-Con este endpoint obtenés una lista de todos los modelos de IA actualmente disponibles a través de la API de GradienteSur.
+Con este endpoint obtenés una lista de todos los modelos de IA actualmente disponibles a través de la API de surus.
 
 La página general de [Modelos Disponibles](../modelos.md) se actualiza dinámicamente usando este endpoint.
 
@@ -40,7 +40,7 @@ curl -X GET https://api.surus.dev/functions/v1/models \
         "unit": "seconds"
       },
       "object": "model",
-      "owned_by": "GS",
+      "owned_by": "SURUS",
       "created": "2025-05-12T16:43:50.016525+00:00"
     },
     {
@@ -69,7 +69,7 @@ curl -X GET https://api.surus.dev/functions/v1/models \
         "unit": "1M tokens"
       },
       "object": "model",
-      "owned_by": "GS",
+      "owned_by": "SURUS",
       "created": "2025-05-12T22:16:39.169061+00:00"
     }
     // Otros modelos...

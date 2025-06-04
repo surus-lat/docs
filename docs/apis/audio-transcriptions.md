@@ -8,9 +8,9 @@ Este endpoint convierte archivos de audio en texto. Es útil para transcribir gr
     ```python
     import requests
 
-    GS_API_KEY = "tu_clave_api"
+    SURUS_API_KEY = "tu_clave_api"
     API_URL = "https://api.surus.dev/functions/v1/audio/transcriptions"
-    headers = {"Authorization": "Bearer " + GS_API_KEY}
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     with open('audio.wav', 'rb') as f:
         files = {'audio': f}
@@ -21,7 +21,7 @@ Este endpoint convierte archivos de audio en texto. Es útil para transcribir gr
 
 === "JavaScript"
     ```javascript
-    const GS_API_KEY = "tu_clave_api";
+    const SURUS_API_KEY = "tu_clave_api";
     const API_URL = 'https://api.surus.dev/functions/v1/audio/transcriptions';
     const formData = new FormData();
     formData.append('model', 'marianbasti/whisper-large-v3-turbo-latam');
@@ -29,7 +29,7 @@ Este endpoint convierte archivos de audio en texto. Es útil para transcribir gr
     fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + GS_API_KEY
+        'Authorization': 'Bearer ' + SURUS_API_KEY
       },
       body: formData
     })
@@ -70,9 +70,9 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
     ```python
     import requests
 
-    GS_API_KEY = "tu_clave_api"
+    SURUS_API_KEY = "tu_clave_api"
     API_URL = "https://api.surus.dev/functions/v1/audio/transcriptions"
-    headers = {"Authorization": "Bearer " + GS_API_KEY}
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     with open('audio.wav', 'rb') as f:
         files = {'audio': f}
@@ -88,7 +88,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
 
 === "JavaScript"
     ```javascript
-    const GS_API_KEY = "tu_clave_api";
+    const SURUS_API_KEY = "tu_clave_api";
     const API_URL = 'https://api.surus.dev/functions/v1/audio/transcriptions';
     const formData = new FormData();
     formData.append('model', 'marianbasti/whisper-large-v3-turbo-latam');
@@ -101,7 +101,7 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
     fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + GS_API_KEY
+        'Authorization': 'Bearer ' + SURUS_API_KEY
       },
       body: formData
     })

@@ -1,6 +1,6 @@
 # APIs y Ejemplos de Uso
 
-Acá está la documentación de cada endpoint disponible en la API de GradienteSur, junto con ejemplos de uso para cada uno.
+Acá está la documentación de cada endpoint disponible en la API de surus, junto con ejemplos de uso para cada uno.
 
 Nuestra API está diseñada para ser compatible con el formato de OpenAI, para hacer más fácil la integración en tus proyectos existentes.
 

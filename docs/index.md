@@ -1,6 +1,6 @@
-# Documentación de la API de GradienteSur
+# Documentación de la API de surus
 
-Bienvenido/a a la documentación oficial de la API de GradienteSur!
+Bienvenido/a a la documentación oficial de la API de surus!
 
 Esta API ofrece modelos de IA compatibles con el formato de OpenAI, para que los integres de manera sencilla en todo tipo de tareas.
 
