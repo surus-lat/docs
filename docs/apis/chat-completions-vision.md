@@ -192,3 +192,103 @@ Podés enviar los siguientes parámetros adicionales para controlar el comportam
     ```
 
 ---
+
+## Usando imágenes locales
+
+Para usar imágenes locales en lugar de URLs, necesitás codificar la imagen en base64 y usar el formato `data:image/jpeg;base64,{base64_string}`.
+
+### Codificación base64
+
+=== "Python"
+    ```python
+    import base64
+    import requests
+
+    # Codificar imagen local a base64
+    def encode_image(image_path):
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode('utf-8')
+
+    SURUS_API_KEY = "tu_clave_api"
+    API_URL = "https://api.surus.dev/functions/v1/chat/completions"
+    headers = {"Authorization": "Bearer " + SURUS_API_KEY}
+
+    # Codificar la imagen
+    base64_image = encode_image("ruta/a/tu/imagen.jpg")
+
+    data = {
+        "model": "OpenGVLab/InternVL3-2B",
+        "messages": [
+            {"role": "user", "content": [
+                {"type": "text", "text": "Qué hay en esta imagen?"},
+                {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}
+            ]}
+        ],
+        "max_tokens": 50
+    }
+
+    response = requests.post(API_URL, headers=headers, json=data)
+    print(response.json())
+    ```
+
+=== "JavaScript"
+    ```javascript
+    const fs = require('fs');
+
+    // Codificar imagen local a base64
+    function encodeImage(imagePath) {
+        const imageBuffer = fs.readFileSync(imagePath);
+        return imageBuffer.toString('base64');
+    }
+
+    const SURUS_API_KEY = "tu_clave_api";
+    const API_URL = 'https://api.surus.dev/functions/v1/chat/completions';
+
+    // Codificar la imagen
+    const base64Image = encodeImage('ruta/a/tu/imagen.jpg');
+
+    fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + SURUS_API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'OpenGVLab/InternVL3-2B',
+        messages: [
+          { role: 'user', content: [
+            { type: 'text', text: 'Qué hay en esta imagen?' },
+            { type: 'image_url', image_url: { url: `data:image/jpeg;base64,${base64Image}` } }
+          ] }
+        ],
+        max_tokens: 50
+      })
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+    ```
+
+=== "cURL"
+    ```bash
+    # Primero codificar la imagen a base64
+    BASE64_IMAGE=$(base64 -w 0 ruta/a/tu/imagen.jpg)
+
+    curl -X POST https://api.surus.dev/functions/v1/chat/completions \
+      -H "Authorization: Bearer tu_clave_api" \
+      -H "Content-Type: application/json" \
+      -d "{\"model\": \"OpenGVLab/InternVL3-2B\", \"messages\": [{\"role\": \"user\", \"content\": [{\"type\": \"text\", \"text\": \"Qué hay en esta imagen?\"}, {\"type\": \"image_url\", \"image_url\": {\"url\": \"data:image/jpeg;base64,$BASE64_IMAGE\"}}]}], \"max_tokens\": 50}"
+    ```
+
+### Formatos soportados
+
+Los siguientes formatos de imagen son compatibles:
+- JPEG: `data:image/jpeg;base64,{base64_string}`
+- PNG: `data:image/png;base64,{base64_string}`
+- GIF: `data:image/gif;base64,{base64_string}`
+- WebP: `data:image/webp;base64,{base64_string}`
+
+### Consideraciones
+
+- **Tamaño**: Las imágenes codificadas en base64 aumentan aproximadamente un 33% su tamaño original.
+- **Límites**: Verificá los límites de tamaño de payload de tu plan de API.
+- **Rendimiento**: Para imágenes grandes, considera usar URLs públicas cuando sea posible.
