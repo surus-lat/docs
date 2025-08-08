@@ -44,30 +44,35 @@ def generate_pricings_md(models_data):
         {
             "title": "Texto",
             "types": ["text"],
+            "tasks": [],
             "columns": ["Modelo", "Precio de entrada por 1M tokens", "Precio de salida por 1M tokens"],
             "rows": []
         },
         {
             "title": "Visión",
             "types": ["vision", "image"],
+            "tasks": [],
             "columns": ["Modelo", "Precio de entrada por 1M tokens", "Precio de salida por 1M tokens"],
             "rows": []
         },
         {
             "title": "Audio - Transcripción",
-            "types": ["speech_to_text", "audio"],  # Include "audio" for speech-to-text
+            "types": [],
+            "tasks": ["speech_to_text"],
             "columns": ["Modelo", "Precio por minuto de entrada", "Precio por minuto de salida"],
             "rows": []
         },
         {
             "title": "Audio - Texto a Voz",
-            "types": ["text_to_speech", "audio"],  # Include "audio" for text-to-speech
+            "types": [],
+            "tasks": ["text_to_speech"],
             "columns": ["Modelo", "Precio por segundo de entrada", "Precio por segundo de salida"],
             "rows": []
         },
         {
             "title": "Embeddings",
             "types": ["embedding", "embeddings"],
+            "tasks": [],
             "columns": ["Modelo", "Precio por token de entrada"],
             "rows": []
         }
@@ -84,7 +89,7 @@ def generate_pricings_md(models_data):
     # Categorize models
     for model in models_data:
         model_type = model.get("type", "").lower()
-        task = model.get("task", "").lower()  # Use task to differentiate audio models
+        model_task = model.get("task", "").lower()
         pricing = model.get("pricing", {})
         name = model.get("name", "N/A")
         
@@ -96,20 +101,35 @@ def generate_pricings_md(models_data):
             continue
         
         for section in sections:
-            if model_type in section["types"] or task in section["types"]:  # Match by type or task
+            # For audio models, use task field
+            if (section["tasks"] and model_task in section["tasks"]) or (section["types"] and model_type in section["types"]):
                 if section["title"] in ["Texto", "Visión"]:
                     section["rows"].append([
                         name,
                         format_price(pricing.get("input_price_per_million_tokens") or pricing.get("input")),
                         format_price(pricing.get("output_price_per_million_tokens") or pricing.get("output"))
                     ])
-                elif section["title"] == "Audio - Transcripción" and task == "speech_to_text":
+                elif section["title"] == "Audio - Transcripción":
+                    # Convert per second to per minute if needed
+                    input_val = pricing.get("input_price_per_minute")
+                    output_val = pricing.get("output_price_per_minute")
+                    if not input_val and pricing.get("input"):
+                        try:
+                            input_val = str(float(pricing.get("input")) * 60)
+                        except Exception:
+                            input_val = pricing.get("input")
+                    if not output_val and pricing.get("output"):
+                        try:
+                            output_val = str(float(pricing.get("output")) * 60)
+                        except Exception:
+                            output_val = pricing.get("output")
                     section["rows"].append([
                         name,
-                        format_price(pricing.get("input_price_per_minute") or pricing.get("input")),
-                        format_price(pricing.get("output_price_per_minute") or pricing.get("output"))
+                        format_price(input_val),
+                        format_price(output_val)
                     ])
-                elif section["title"] == "Audio - Texto a Voz" and task == "text_to_speech":
+                elif section["title"] == "Audio - Texto a Voz":
+                    # Use per second pricing
                     section["rows"].append([
                         name,
                         format_price(pricing.get("input_price_per_second") or pricing.get("input")),
