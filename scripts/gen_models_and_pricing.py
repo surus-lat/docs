@@ -55,13 +55,13 @@ def generate_pricings_md(models_data):
         },
         {
             "title": "Audio - Transcripción",
-            "types": ["speech_to_text"],
+            "types": ["speech_to_text", "audio"],  # Include "audio" for speech-to-text
             "columns": ["Modelo", "Precio por minuto de entrada", "Precio por minuto de salida"],
             "rows": []
         },
         {
             "title": "Audio - Texto a Voz",
-            "types": ["text_to_speech"],
+            "types": ["text_to_speech", "audio"],  # Include "audio" for text-to-speech
             "columns": ["Modelo", "Precio por segundo de entrada", "Precio por segundo de salida"],
             "rows": []
         },
@@ -84,6 +84,7 @@ def generate_pricings_md(models_data):
     # Categorize models
     for model in models_data:
         model_type = model.get("type", "").lower()
+        task = model.get("task", "").lower()  # Use task to differentiate audio models
         pricing = model.get("pricing", {})
         name = model.get("name", "N/A")
         
@@ -95,20 +96,20 @@ def generate_pricings_md(models_data):
             continue
         
         for section in sections:
-            if model_type in section["types"]:
+            if model_type in section["types"] or task in section["types"]:  # Match by type or task
                 if section["title"] in ["Texto", "Visión"]:
                     section["rows"].append([
                         name,
                         format_price(pricing.get("input_price_per_million_tokens") or pricing.get("input")),
                         format_price(pricing.get("output_price_per_million_tokens") or pricing.get("output"))
                     ])
-                elif section["title"] == "Audio - Transcripción":
+                elif section["title"] == "Audio - Transcripción" and task == "speech_to_text":
                     section["rows"].append([
                         name,
                         format_price(pricing.get("input_price_per_minute") or pricing.get("input")),
                         format_price(pricing.get("output_price_per_minute") or pricing.get("output"))
                     ])
-                elif section["title"] == "Audio - Texto a Voz":
+                elif section["title"] == "Audio - Texto a Voz" and task == "text_to_speech":
                     section["rows"].append([
                         name,
                         format_price(pricing.get("input_price_per_second") or pricing.get("input")),
