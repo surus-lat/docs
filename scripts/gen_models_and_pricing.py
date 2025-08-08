@@ -70,7 +70,7 @@ def generate_pricings_md(models_data):
     def format_price(price):
         if price is not None and price != "":
             try:
-                return f"${float(price):.2f}"
+                return str(float(price)).rstrip("0").rstrip(".") if "." in str(float(price)) else str(float(price))
             except (ValueError, TypeError):
                 return str(price)
         return "-"
@@ -80,6 +80,13 @@ def generate_pricings_md(models_data):
         model_type = model.get("type", "").lower()
         pricing = model.get("pricing", {})
         name = model.get("name", "N/A")
+        
+        # Skip models with both input and output pricing as 0
+        input_price = pricing.get("input_price_per_million_tokens") or pricing.get("input")
+        output_price = pricing.get("output_price_per_million_tokens") or pricing.get("output")
+        if (input_price in [None, "0", "0.0", "0.00000000"] and 
+            output_price in [None, "0", "0.0", "0.00000000"]):
+            continue
         
         for section in sections:
             if model_type in section["types"]:
@@ -133,6 +140,7 @@ def main():
     
     print("Fetching models data from API...")
     models_data = fetch_models_data()
+    print(f"{models_data}")
     
     print(f"Generating {models_file}...")
     models_content = generate_models_md(models_data)

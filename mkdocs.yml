@@ -15,6 +15,7 @@ nav:
       - Modelos Disponibles: apis/models-endpoint.md
   - Modelos: modelos.md
   - Precios: pricings.md
+  - Límites de frecuencia: rate-limits.md
   - Changelog: changelog.md
 theme:
   name: material
