@@ -13,6 +13,7 @@ Actualmente, los límites de frecuencia son los siguientes:
 | Audio             | 1500         |
 | Embeddings        | 8000         |
 
+## Solicitudes adicionales
 
 En caso de que tu caso de uso requiera un mayor límite de frecuencia, no dudes en contactarnos a través de nuestro [Discord](https://discord.gg/sFeXDcAJ9K) o [email](mailto:contacto@surus.dev).
 ---

@@ -70,7 +70,9 @@ def generate_pricings_md(models_data):
     def format_price(price):
         if price is not None and price != "":
             try:
-                return str(float(price)).rstrip("0").rstrip(".") if "." in str(float(price)) else str(float(price))
+                # Ensure small prices are not displayed in scientific notation
+                formatted_price = f"{float(price):.8f}".rstrip("0").rstrip(".")
+                return formatted_price if "." in formatted_price else str(int(float(price)))
             except (ValueError, TypeError):
                 return str(price)
         return "-"
