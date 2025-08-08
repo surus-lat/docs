@@ -54,8 +54,14 @@ def generate_pricings_md(models_data):
             "rows": []
         },
         {
-            "title": "Audio",
-            "types": ["audio"],
+            "title": "Audio - Transcripción",
+            "types": ["speech_to_text"],
+            "columns": ["Modelo", "Precio por minuto de entrada", "Precio por minuto de salida"],
+            "rows": []
+        },
+        {
+            "title": "Audio - Texto a Voz",
+            "types": ["text_to_speech"],
             "columns": ["Modelo", "Precio por segundo de entrada", "Precio por segundo de salida"],
             "rows": []
         },
@@ -70,9 +76,7 @@ def generate_pricings_md(models_data):
     def format_price(price):
         if price is not None and price != "":
             try:
-                # Ensure small prices are not displayed in scientific notation
-                formatted_price = f"{float(price):.8f}".rstrip("0").rstrip(".")
-                return formatted_price if "." in formatted_price else str(int(float(price)))
+                return str(float(price)).rstrip("0").rstrip(".") if "." in str(float(price)) else str(float(price))
             except (ValueError, TypeError):
                 return str(price)
         return "-"
@@ -98,7 +102,13 @@ def generate_pricings_md(models_data):
                         format_price(pricing.get("input_price_per_million_tokens") or pricing.get("input")),
                         format_price(pricing.get("output_price_per_million_tokens") or pricing.get("output"))
                     ])
-                elif section["title"] == "Audio":
+                elif section["title"] == "Audio - Transcripción":
+                    section["rows"].append([
+                        name,
+                        format_price(pricing.get("input_price_per_minute") or pricing.get("input")),
+                        format_price(pricing.get("output_price_per_minute") or pricing.get("output"))
+                    ])
+                elif section["title"] == "Audio - Texto a Voz":
                     section["rows"].append([
                         name,
                         format_price(pricing.get("input_price_per_second") or pricing.get("input")),

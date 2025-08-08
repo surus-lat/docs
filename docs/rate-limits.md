@@ -6,12 +6,13 @@ Medimos los límites de frecuencia en "solicitudes por minuto" (RPM). De exceder
 
 Actualmente, los límites de frecuencia son los siguientes:
 
-| Tipo de solicitud | Límite (RPM) |
-|-------------------|--------------|
-| Texto             | 7000         |
-| Visión            | 3000         |
-| Audio             | 1500         |
-| Embeddings        | 8000         |
+| Tipo de solicitud       | Límite (RPM) |
+|-------------------------|--------------|
+| Texto                   | 7000         |
+| Visión                  | TBD          |
+| Audio - Transcripción   | TBD          |
+| Audio - Texto a Voz     | TBD          |
+| Embeddings              | TBD          |
 
 ## Solicitudes adicionales
 
