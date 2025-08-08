@@ -27,8 +27,6 @@ theme:
   palette:
     primary: indigo
     accent: indigo
-extra_javascript:
-  - js/dynamic-loader.js
 markdown_extensions:
   - admonition
   - codehilite:
