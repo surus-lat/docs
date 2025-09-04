@@ -15,10 +15,10 @@ curl -X GET https://api.surus.dev/functions/v1/models \
 {
   "data": [
     {
-      "name": "marianbasti/Llama-3.2-3B-Orpheus-Rioplatense-1795",
+      "name": "surus-lat/Llama-3.2-3B-Orpheus-Rioplatense-1795",
       "type": "audio",
       "task": "text_to_speech",
-      "documentation_url": "https://huggingface.co/marianbasti/Llama-3.2-3B-Orpheus-Rioplatense-1795",
+      "documentation_url": "https://huggingface.co/surus-lat/Llama-3.2-3B-Orpheus-Rioplatense-1795",
       "description": "Nuestro modelo propietario de texto a voz entrenado para el español rioplatense.",
       "unique_selling_point": "Texto a voz | Español Rioplatense",
       "use_cases": [

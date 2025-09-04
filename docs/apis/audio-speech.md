@@ -13,7 +13,7 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
     headers = {"Authorization": "Bearer " + SURUS_API_KEY}
 
     data = {
-        "model": "marianbasti/Llama-3.2-3B-Orpheus-Rioplatense-1795",
+        "model": "surus-lat/Llama-3.2-3B-Orpheus-Rioplatense-1795",
         "input": "Hola, ¿cómo estás?",
         "voice": "female",
         "response_format": "wav"
@@ -35,7 +35,7 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'marianbasti/Llama-3.2-3B-Orpheus-Rioplatense-1795',
+        model: 'surus-lat/Llama-3.2-3B-Orpheus-Rioplatense-1795',
         input: 'Hola, ¿cómo estás?',
         voice: 'female',
         response_format: 'wav'
@@ -56,7 +56,7 @@ Este endpoint convierte texto en audio hablado. Lo podés usar en aplicaciones q
     curl -X POST https://api.surus.dev/functions/v1/audio/speech \
       -H "Authorization: Bearer tu_clave_api" \
       -H "Content-Type: application/json" \
-      -d '{"model": "marianbasti/Llama-3.2-3B-Orpheus-Rioplatense-1795", "input": "Hola, ¿cómo estás?", "voice": "female", "response_format": "wav"}' --output output.wav
+      -d '{"model": "surus-lat/Llama-3.2-3B-Orpheus-Rioplatense-1795", "input": "Hola, ¿cómo estás?", "voice": "female", "response_format": "wav"}' --output output.wav
     ```
 
 ### Respuesta
