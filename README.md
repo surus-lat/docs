@@ -37,3 +37,5 @@ O simplemente al correr `mkdocs serve` o `mkdocs build`, el índice se actualiza
 ## Contribuciones
 
 ¡Te invitamos a contribuir a la documentación! Si quisieras hacerlo, crea un issue o pull request.
+
+Porfa revisar `doc_guidelines.md` para ver doc guidelines
